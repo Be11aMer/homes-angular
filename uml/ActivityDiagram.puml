@@ -1,0 +1,31 @@
+@startuml
+|User|
+start
+:Open App;
+:Select Property;
+:View Property Details;
+if (Property Liked?) then (yes)
+  :Register;
+endif
+:Return to Main View;
+if (Interested in Another Property?) then (yes)
+  :Select Property;
+  :View Property Details;
+  if (Property Liked?) then (yes)
+    :Register;
+  endif
+  :Return to Main View;
+endif
+stop
+
+|Angular Component/Service|
+start
+:Initialize App;
+:Load Property;
+:Display Property Details;
+if (User Registers?) then (yes)
+  :Process Registration;
+endif
+:Return to Main View;
+stop
+@enduml
